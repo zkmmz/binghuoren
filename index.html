@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>共生边界 | SYMBIOSIS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="brand">SYMBIOSIS <span>共生边界</span></div><div class="topnote">TWO WORLDS · ONE BODY</div></header>
+<main>
+<section class="intro" id="intro">
+  <p class="eyebrow">GESTURE-CONTROLLED CO-OP PUZZLE</p>
+  <h1>两个世界，<i>一双手。</i></h1>
+  <p class="desc">摄像头画面左侧的手唤醒冰，右侧的手点燃火。合作，让两个世界抵达彼此。</p>
+  <div class="instructions">
+    <div><b class="iceText">ICE / 画面左侧</b><span>手掌左右移动：行走</span><span>食指向上：跳跃</span><span>握拳：冻结机关</span></div>
+    <div><b class="fireText">FIRE / 画面右侧</b><span>手掌左右移动：行走</span><span>食指向上：跳跃</span><span>握拳：融化机关</span></div>
+  </div>
+  <button id="startBtn">开启摄像头并开始 ↗</button>
+  <p class="tiny">需允许摄像头访问。建议双手同时进入画面，保持光线充足。</p>
+  <p class="tiny">三关渐进挑战：收集晶石 → 握拳为对方架桥 → 避开危险 → 双双抵达出口。</p>
+  <p class="tiny">键盘：冰 A/D 移动、W 跳跃、S 充能；火 ←/→ 移动、↑ 跳跃、↓ 充能。</p>
+  <button class="secondary" id="keyboardBtn">键盘试玩</button>
+</section>
+<section id="game" class="game hidden">
+  <div class="hud"><div><span class="dot iceDot"></span> ICE <small id="iceState">等待画面左侧的手</small></div><div class="level" id="levelTitle">CHAPTER 01 / 共生之桥</div><div><span class="dot fireDot"></span> FIRE <small id="fireState">等待画面右侧的手</small></div></div>
+  <div class="progressRow"><span id="levelObjective">收集晶石，开启共生之桥</span><span id="runStats">00:00 · 复位 0 次</span></div>
+  <div class="worlds">
+    <div class="world iceWorld"><div class="worldLabel">01 / ICE WORLD</div><canvas id="iceCanvas" width="640" height="480"></canvas></div>
+    <div class="world fireWorld"><div class="worldLabel">02 / FIRE WORLD</div><canvas id="fireCanvas" width="640" height="480"></canvas></div>
+  </div>
+  <div class="bottom">
+    <div class="tip" id="tip">移动双手，分别引导两位精灵。先冻结冰机关，再让火精灵通过桥梁。</div>
+    <div class="meters"><span>ICE GATE</span><div class="meter"><i id="iceMeter"></i></div><span>FIRE GATE</span><div class="meter fireMeter"><i id="fireMeter"></i></div></div>
+    <button id="restartBtn" class="secondary">重置关卡</button>
+    <button id="camToggle" class="secondary">显示摄像头</button>
+    <button id="retryCamera" class="secondary">启动 / 重试手势</button>
+    <button id="switchKeyboard" class="secondary">切换键盘控制</button>
+  </div>
+  <p id="trackingStatus" role="status" aria-live="polite">手势识别尚未启动</p>
+  <div id="cameraBox"><video id="camera" width="640" height="480" autoplay muted playsinline></video><canvas id="handOverlay" width="640" height="480"></canvas><div id="handDebug">HANDPOSE · 尚未启动</div></div>
+  <div id="win" class="win hidden"><div class="winCard"><p class="eyebrow">SYMBIOSIS ACHIEVED</p><h2 id="winTitle">共生之桥已贯通</h2><p id="winSummary"></p><button id="nextBtn">进入下一关 ↗</button><button id="againBtn" class="secondary">重玩本关</button></div></div>
+</section>
+</main>
+<footer><span>DESIGNED FOR INTERACTION</span><span>HTML · CSS · JS · ml5.js</span></footer>
+<script src="levels.js"></script>
+<script src="script.js"></script>
+</body></html>

@@ -1,0 +1,11 @@
+{
+  "name": "binghuoren",
+  "version": "1.0.0",
+  "private": true,
+  "description": "共生边界：摄像头手势控制的冰火合作闯关游戏",
+  "scripts": {
+    "test": "node game.test.cjs",
+    "build": "node build.cjs"
+  },
+  "engines": { "node": ">=20" }
+}
